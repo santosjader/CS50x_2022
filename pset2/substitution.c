@@ -63,7 +63,7 @@ void cyphertext(string plaintext, string key) // void function so return nothing
     printf("ciphertext: ");
     for (int i = 0, n = strlen(plaintext); i < n ; i++) // loop trough plaintext [n]
     {
-        if(isalpha(plaintext[i])) // check if character[i] is a letter
+        if (isalpha(plaintext[i])) // check if character[i] is a letter
         {
             for (int j = 0, k = strlen(atoz); j < k ; j++) // loop through baseline (A to Z = 26 positions)
             {
@@ -85,5 +85,4 @@ void cyphertext(string plaintext, string key) // void function so return nothing
             printf("%c", plaintext[i]); // if isn't a letter just print original character
         }
     }
-
 }
