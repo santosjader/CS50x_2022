@@ -91,7 +91,7 @@ float index(int letters, int words, int sentences)
     float L = ((float)letters *100)/(words+1);
     float S = ((float)sentences *100)/(words+1);
 
-    index = (0.0588 * L) - (0.296 * S) - 15.8;
+    index = (0.0588 * L) - (0.296 * S) - 15.8; // given formula
 
-    return index;
+    return index; // return the result 
 }
