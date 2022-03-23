@@ -1,6 +1,5 @@
 // Problem Set 2 - substitution
 
-// libs
 #include <stdio.h> //printf
 #include <cs50.h> //get_string
 #include <string.h> //strlen
