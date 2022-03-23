@@ -94,3 +94,4 @@ void cyphertext(string plaintext, string key) // void function so return nothing
     }
 
 }
+
