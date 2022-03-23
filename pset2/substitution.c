@@ -1,30 +1,22 @@
 // Problem Set 2 - substitution
-
-// libs
 #include <stdio.h> //printf
 #include <cs50.h> //get_string
 #include <string.h> //strlen
 #include <ctype.h> // isalpha, toupper, tolower
-
-// we will be using functions to (a) validate key and (b) ciphertext
+// we will be using functions to (a) validate key and (b) cyphertext
 int validate_key(string key);
-void ciphertext(string plaintext, string key);
-
+void cyphertext(string plaintext, string key);
 int main(int argc, string argv[])
 {
     if (argc == 2) // check if there is a single command-line argument
     {
         string key = argv[1];
-        for (int i = 0, n = strlen(key); i < n; i++)
-        {
-            key[i] = toupper(key[i]);
-        }
         if (! validate_key(key))
         {
             string plaintext = get_string("plaintext: ");
-            ciphertext(plaintext, key); // call ciphertext function passing plaintext and the cipher key
-            printf("\n"); // print a new line after output ciphertext
-            return 0; // key is valid and ciphertext is printed out
+            cyphertext(plaintext, key); // call cyphertext function passing plaintext and the cypher key
+            printf("\n"); // print a new line after output cyphertext
+            return 0; // key is valid and cyphertext is printed out
         }
         printf("Invalid KEY\n");
         return 1; // key is invalid
@@ -32,7 +24,6 @@ int main(int argc, string argv[])
     printf("Usage: ./substitution key\n");
     return 1; // invalid command-line argument
 }
-
 int validate_key(string key)
 {
     // key must have 26 alphabetic and non repeated characters, considering case-insensitive
@@ -44,7 +35,7 @@ int validate_key(string key)
     }
     else
     {
-        for (int i = 0, n = strlen(key) -1 ; i < n ; i++) // loop through all characters [i < n] in key
+        for (int i = 0, n = strlen(key) ; i < n ; i++) // loop through all characters [i < n] in key
         {
             if (! isalpha(key[i])) // check key for non alphabetic characters
             {
@@ -66,13 +57,11 @@ int validate_key(string key)
     }
     return 0; // key passed all tests
 }
-
-void ciphertext(string plaintext, string key) // void function so return nothing (just print ciphertext)
+void cyphertext(string plaintext, string key) // void function so return nothing (just print cyphertext)
 {
     string atoz = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"; //base line
     printf("ciphertext: ");
-
-    for (int i = 0, n = strlen(plaintext) -1; i < n ; i++) // loop trough plaintext [n]
+    for (int i = 0, n = strlen(plaintext); i < n ; i++) // loop trough plaintext [n]
     {
         if(isalpha(plaintext[i])) // check if character[i] is a letter
         {
@@ -82,11 +71,11 @@ void ciphertext(string plaintext, string key) // void function so return nothing
                 {
                     if (isupper(plaintext[i])) // check if letter is uppercase
                     {
-                        printf("%c", toupper(key[j])); // (uppercase) take the position in alphabet and cipherkey corresponding position
+                        printf("%c", toupper(key[j])); // (uppercase) take the position in alphabet and cypherkey corresponding position
                     }
                     else
                     {
-                        printf("%c", tolower(key[j])); // (lowercase) take the position in alphabet and cipherkey corresponding position
+                        printf("%c", tolower(key[j])); // (lowercase) take the position in alphabet and cypherkey corresponding position
                     }
                 }
             }
